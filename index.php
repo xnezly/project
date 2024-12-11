@@ -119,8 +119,8 @@ JOIN
         <h1><?=$item['name']?></h1>
         <p>Цена: <?= $item['price']?>.р</p>
         <p>В наличии: <?= $item['quantity']?>.шт</p>
-        <a href="action/Delete.php?id=<?= $item['article'] ?>" id="DeleteTovar">Удалить</a>
-        <td><a href="action/Edit.php?article=<?= $item['article'] ?> " id='EditTovar'>Изменить</a></td>
+        <a href="action/Delete.php?id=<?= $item['id'] ?>" id="DeleteTovar">Удалить</a>
+        <td><a href="action/Edit.php?article=<?= $item['id'] ?> " id='EditTovar'>Изменить</a></td>
     </div>
 <?php endforeach;?>
 </div>
