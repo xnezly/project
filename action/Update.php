@@ -2,11 +2,10 @@
 /** @var PDO $pdo */
 $pdo = require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 
-
 $stmt = $pdo->prepare ("UPDATE `product` SET
 `quantity` = :quantity,
    `price` = :price,
-   'article' = :article
+   `article` = :article
    WHERE id = :id");
 $stmt->execute([
     'price' => $_POST['price'],

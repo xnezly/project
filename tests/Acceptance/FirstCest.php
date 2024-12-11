@@ -56,6 +56,7 @@ class TovarCest
     }
     public function DeleteTovar(AcceptanceTester $I)
     {
+        $I->wait(5);
         $I->click('#DeleteTovar');
         $I->dontSee('qwerty');
     }
