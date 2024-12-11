@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: database:3306
--- Время создания: Дек 09 2024 г., 06:32
+-- Время создания: Дек 10 2024 г., 10:00
 -- Версия сервера: 8.4.0
 -- Версия PHP: 8.2.10
 
@@ -34,14 +34,6 @@ CREATE TABLE `entrance` (
   `Quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Дамп данных таблицы `entrance`
---
-
-INSERT INTO `entrance` (`id`, `product_id`, `datetime`, `Quantity`) VALUES
-(1, 2, '2024-12-09', 2578),
-(2, 2, '2024-12-09', 25);
-
 -- --------------------------------------------------------
 
 --
@@ -51,16 +43,9 @@ INSERT INTO `entrance` (`id`, `product_id`, `datetime`, `Quantity`) VALUES
 CREATE TABLE `product` (
   `article` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `price` int NOT NULL
+  `price` int NOT NULL,
+  `quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Дамп данных таблицы `product`
---
-
-INSERT INTO `product` (`article`, `name`, `price`) VALUES
-(1, 'dsfdasf', 5000),
-(2, 'Кабачок', 1000);
 
 --
 -- Индексы сохранённых таблиц
@@ -87,13 +72,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT для таблицы `entrance`
 --
 ALTER TABLE `entrance`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `article` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `article` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
