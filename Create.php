@@ -79,6 +79,7 @@
         <input type="text" name="name" placeholder="Название">
         <input type="number" name="price" placeholder="Цена">
         <input type="number" name="quantity" placeholder="Количество">
+        <input type="number" name="article" placeholder="Артикул">
         <input type="submit" class="submit">
         <a href="/index.php" class="button-style">Назад</a>
     </form>

@@ -97,7 +97,7 @@ $products = $pdo -> query("SELECT * FROM product")->fetchAll();
     <input type="hidden" name="id" value="<?= $entrance['id'] ?>">
     <select name="product" id="">
         <?php foreach ($products as $item):?>
-            <option value="<?=$item['article']?>"><?=$item['name']?></option>
+            <option value="<?=$item['id']?>"><?=$item['name']?></option>
         <?php endforeach;?>
     </select>
     <input type="date" name="datetime" placeholder="Дата" value="">

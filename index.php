@@ -11,7 +11,8 @@ $entrance = $pdo -> query("SELECT
 FROM 
     entrance
 JOIN 
-    product ON entrance.product_id = product.article;")->fetchAll();
+    product ON entrance.product_id = product.id;")->fetchAll();
+
 ?>
 <!doctype html>
 <html lang="ru">
@@ -119,6 +120,7 @@ JOIN
         <h1><?=$item['name']?></h1>
         <p>Цена: <?= $item['price']?>.р</p>
         <p>В наличии: <?= $item['quantity']?>.шт</p>
+        <p>Артикул: <?= $item['article']?></p>
         <a href="action/Delete.php?id=<?= $item['id'] ?>" id="DeleteTovar">Удалить</a>
         <td><a href="action/Edit.php?article=<?= $item['id'] ?> " id='EditTovar'>Изменить</a></td>
     </div>

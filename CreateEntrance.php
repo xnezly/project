@@ -63,7 +63,7 @@ $products = $pdo -> query("SELECT * FROM product")->fetchAll();
     <label for="">Товар</label>
     <select name="product" id="">
         <?php foreach ($products as $item):?>
-        <option value="<?=$item['article']?>"><?=$item['name']?></option>
+        <option value="<?=$item['id']?>"><?=$item['name']?></option>
         <?php endforeach;?>
     </select>
     <label for="">Время поступления</label>

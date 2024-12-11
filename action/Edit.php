@@ -2,8 +2,8 @@
 /** @var PDO $pdo */
 $pdo = require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 
-$stmt = $pdo->prepare("SELECT * FROM product WHERE article = ?");
-$stmt->execute([$_GET['article'] ?? '']);
+$stmt = $pdo->prepare("SELECT * FROM product WHERE id = ?");
+$stmt->execute([$_GET['id'] ?? '']);
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
 $products = $pdo -> query("SELECT * FROM product")->fetchAll();
 ?>
@@ -94,7 +94,7 @@ $products = $pdo -> query("SELECT * FROM product")->fetchAll();
 </head>
 <body>
 <form action="/action/Update.php/" method="post">
-    <input type="hidden" name="article" value="<?= $product['article'] ?>">
+    <input type="hidden" name="article" value="<?= $product['id'] ?>">
     <input type="text" name="price" placeholder="Цена" value="<?= $product['price'] ?>" id="price">
     <input type="text" name="quantity" placeholder="Количество" value="<?= $product['quantity'] ?>" id="quantity">
     <input type="submit" class="submit">
