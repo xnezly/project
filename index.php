@@ -23,28 +23,94 @@ JOIN
     <title>Document</title>
 </head>
 <style>
-    a{
-        margin: 20px;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
     }
-    body{
-        display: grid;
-        grid-template-areas: "a a"
-                            "b c";
+
+    .links {
+        margin-bottom: 20px;
     }
-    .links{
-        grid-area: a;
+
+    .links a {
+        text-decoration: none;
+        color: #007BFF;
+        margin-right: 15px;
+        font-weight: bold;
     }
-    .product{
-        grid-area: b;
+
+    .links a:hover {
+        text-decoration: underline;
     }
-    .entrance{
-        grid-area: c;
+
+    .product, .entrance {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
     }
+
+    .product h1, .entrance h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+        transition: box-shadow 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h1 {
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+
+    .card p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #e9ecef;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
 </style>
 <body>
 <div class="links">
-<a href="Create.php">Добавить товар в базу</a>
-<a href="CreateEntrance.php">Добавить информацию о поступлении товара</a>
+<a href="Create.php" id="CreateTovar">Добавить товар в базу</a>
+<a href="CreateEntrance.php" id="CreateEntrance">Добавить информацию о поступлении товара</a>
 </div>
 <div class="product">
     <h1>Товар</h1>
@@ -52,6 +118,9 @@ JOIN
     <div class="card">
         <h1><?=$item['name']?></h1>
         <p>Цена: <?= $item['price']?>.р</p>
+        <p>В наличии: <?= $item['quantity']?>.шт</p>
+        <a href="action/Delete.php?id=<?= $item['article'] ?>" id="DeleteTovar">Удалить</a>
+        <td><a href="action/Edit.php?article=<?= $item['article'] ?> " id='EditTovar'>Изменить</a></td>
     </div>
 <?php endforeach;?>
 </div>
@@ -62,14 +131,16 @@ JOIN
                 <th>Название</th>
                 <th>Дата поставки</th>
                 <th>Количество</th>
+                <th>Удалить</th>
+                <th>Изменить</th>
             </tr>
             <?php foreach($entrance as $item):?>
             <tr>
                 <td><?=$item['product_name']?></td>
                 <td><?=$item['datetime']?></td>
                 <td><?=$item['Quantity']?></td>
-                <td><a href="action/DeleteEntrance.php">Удалить</a></td>
-                <td><a href="EditEntrance.php">Изменить</a></td>
+                <td><a href="action/DeleteEntrance.php?id=<?= $item['id'] ?>" id="DeleteEntrance">Удалить</a></td>
+                <td><a href="EditEntrance.php?id=<?= $item['id'] ?>" id="EditEntrance">Изменить</a></td>
             </tr>
             <?php endforeach;?>
         </table>
